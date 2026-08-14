@@ -29,7 +29,7 @@ x-status: acquired
 x-acquired-by: vts
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-13'
 tags:
 - Company
 - Real Estate
@@ -38,8 +38,40 @@ tags:
 - Retail
 - Marketing Automation
 - Leasing
-apis: []
+apis:
+- name: Property Capsule Developer API
+  description: 'Property Capsule''s Developer API, announced live on 2020-06-18 in the company''s
+    public release notes: "Our robust API is now live! Now your developers can access PropertyCapsule
+    data outside of our platform, to power your website, internal applications, and much more."
+    Access is granted by contacting support; there is no public reference and no machine-readable
+    contract. The API host is live and fully authentication-gated — every path on
+    api.propertycapsule.com returns the plain-text body "You must authenticate.", and
+    /api exposes an Apache directory index listing two path-versioned majors, v1 and v2.
+    Authentication is session-based (JSESSIONID). The product marketing page describes the surface
+    as "REST, JSON, JSONP, XML and widgets" with custom Salesforce and Microsoft Dynamics
+    integrations and two-way data feeds to JD Edwards, Oracle, MRI and Yardi.'
+  humanURL: https://propertycapsule.com/details
+  baseURL: https://api.propertycapsule.com/api/v1
+  tags:
+  - Real Estate
+  - PropTech
+  - Commercial Real Estate
+  - Leasing
+  - Property Data
+  x-access: gated
+  x-access-note: >-
+    Probed 2026-08-13. https://api.propertycapsule.com/api/v1/ returns HTTP 200 with the body
+    "You must authenticate."; https://api.propertycapsule.com/api returns HTTP 200 with an
+    Apache 2.4.54 directory index listing v1/ and v2/. No public reference, OpenAPI, GraphQL SDL,
+    Postman collection or MCP server was found on any Property Capsule host.
+  properties:
+  - type: RateLimits
+    url: rate-limits/property-capsule-rate-limits.yml
+  - type: Lifecycle
+    url: lifecycle/property-capsule-lifecycle.yml
 common:
+- type: DomainSecurity
+  url: security/property-capsule-domain-security.yml
 - name: Website
   url: https://propertycapsule.com/
   type: Website
@@ -49,13 +81,61 @@ common:
 - name: Support
   url: http://support.propertycapsule.com/
   type: Support
+- name: Contact
+  url: https://propertycapsule.com/contact
+  type: Contact
+- name: Help Center
+  url: https://propertycapsule.zendesk.com/hc/en-us
+  type: HelpCenter
+- name: Release Notes
+  url: changelog/property-capsule-changelog.yml
+  type: ChangeLog
+- name: Lifecycle
+  url: lifecycle/property-capsule-lifecycle.yml
+  type: Lifecycle
+- name: Plans and Pricing
+  url: plans/property-capsule-plans-pricing.yml
+  type: Plans
+- name: Rate Limits
+  url: rate-limits/property-capsule-rate-limits.yml
+  type: RateLimits
+- name: llms.txt
+  url: llms/property-capsule-llms.txt
+  type: LLMsTxt
+- name: Enterprise Login
+  url: https://admin.propertycapsule.com
+  type: Login
+- name: Retail Marketplace Sign Up
+  url: https://maps.propertycapsule.com/map/sign-up
+  type: SignUp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-20'
-  status: nochange
-  artifacts_added: 0
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 7
   pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Property Capsule announced a Developer API live on 2020-06-18 and told developers to
+    "contact our support team" for it, and api.propertycapsule.com is up and serving two
+    path-versioned majors — but every path on that host answers with the plain-text body
+    "You must authenticate.", and the 62-article public help center has no developer section
+    at all, so the reference only exists for signed customers.
+  evidence:
+    - url: https://api.propertycapsule.com/api/v1/
+      status: 200
+    - url: https://api.propertycapsule.com/api
+      status: 200
+    - url: https://propertycapsule.zendesk.com/hc/en-us/articles/360050724134-Release-Notes-June-18th-2020
+      status: 200
+    - url: https://propertycapsule.com/openapi.json
+      status: 200
+    - url: https://propertycapsule.com/pricing
+      status: 301
+  checked: '2026-08-13'
