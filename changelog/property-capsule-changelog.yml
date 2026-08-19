@@ -1,0 +1,171 @@
+generated: '2026-08-13'
+method: searched
+source: https://propertycapsule.zendesk.com/hc/en-us/sections/360008308314-Release-Notes
+name: Property Capsule Release Notes
+summary: >-
+  Property Capsule publishes dated release notes as a "Release Notes" section of its public
+  Zendesk help center. The section carries 18 entries covering 2020-03-26 through 2020-09-03
+  and then stops. Entries are grouped by product area (Enterprise Admin, Site Plan Editor,
+  iOS, Standard Website, Developer API / API Service, Collections, Heat Maps) with additions
+  and fixes listed as bullets. The Developer API launch and two documentation updates are the
+  only API-surface entries in the whole run.
+scheme: dated-release-notes
+versioning: none-published
+format: html
+machine_readable:
+  available: true
+  note: >-
+    The help-center HTML returns 403 to non-browser clients, but the Zendesk Help Center REST
+    API is anonymous and serves the same articles as JSON. This artifact was harvested from
+    that endpoint.
+  endpoint: https://propertycapsule.zendesk.com/api/v2/help_center/en-us/sections/360008308314/articles.json
+  http_status: 200
+currency:
+  entry_count: 18
+  first_entry: '2020-03-26'
+  latest_entry: '2020-09-03'
+  stale: true
+  note: >-
+    No release note has been published since 2020-09-03, roughly a year after VTS acquired
+    PropertyCapsule (October 2019). The public changelog is a historical record, not a live
+    feed of current change.
+entries:
+  - date: '2020-09-03'
+    title: 'Release Notes : September 2nd, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360053107194-Release-Notes-September-2nd-2020
+    areas: [Enterprise Admin]
+    breaking: false
+    highlights:
+      - New in-product photo editor with crop, resize and color matching.
+      - Photo crosshair padding/cropping bug fixed.
+  - date: '2020-08-21'
+    title: 'Release Notes : August 21st, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360052555834-Release-Notes-August-21st-2020
+    areas: [Enterprise Admin, Sharing]
+    breaking: false
+    highlights:
+      - New spaces admin interface with more fields and on-demand space features.
+      - New "Data Feed" section to track data feed success/failure and manage recipients of the data feed change logs.
+      - Bulk upload runtime halved.
+  - date: '2020-08-03'
+    title: 'Release Notes : July 29th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360052569073-Release-Notes-July-29th-2020
+    areas: [Legacy Flyer Service, iOS]
+    breaking: false
+    highlights:
+      - Appended/prepended PDFs render correctly in the legacy flyer service.
+  - date: '2020-07-23'
+    title: 'Release Notes : July 22nd, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360052200093-Release-Notes-July-22nd-2020
+    areas: [Enterprise Admin, Browser Support]
+    breaking: true
+    highlights:
+      - 'Bidboard functionality sunset and "no longer available for public integration" — the only integration-affecting removal announced in the run.'
+      - Demographic "Resources" section sunset in the Enterprise Admin.
+      - Internet Explorer support dropped; users redirected to Chrome, Firefox, Safari, Edge.
+  - date: '2020-07-15'
+    title: 'Release Notes : July 15, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360051864233-Release-Notes-July-15-2020
+    areas: [Collections, Enterprise Admin]
+    breaking: false
+    highlights:
+      - Spreadsheet download of collection data restored.
+  - date: '2020-07-09'
+    title: 'Release Notes : July 9th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360051627953-Release-Notes-July-9th-2020
+    areas: [Enterprise Admin, API Service, Standard Website]
+    breaking: false
+    api_surface: true
+    highlights:
+      - 'API Service: "Documentation and services have been updated with additional supporting information."'
+  - date: '2020-07-07'
+    title: 'Release Notes : July 2nd, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360050726894-Release-Notes-July-2nd-2020
+    areas: [Stock Website, Developer API, Site Plan Editor, Lease Expiration Heat Maps]
+    breaking: false
+    api_surface: true
+    highlights:
+      - 'Developer API: "Service documentation updated."'
+  - date: '2020-07-07'
+    title: 'Release Notes : June 18th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360050724134-Release-Notes-June-18th-2020
+    areas: [Developer API]
+    breaking: false
+    api_surface: true
+    highlights:
+      - >-
+        Developer API launch: "Our robust API is now live! Now your developers can access
+        PropertyCapsule data outside of our platform, to power your website, internal
+        applications, and much more! Contact our support team (support@propertycapsule.com)
+        for more information."
+      - Access is granted through a support conversation; no public reference or spec accompanies the launch.
+  - date: '2020-07-07'
+    title: 'Release Notes : June 17th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360050723354-Release-Notes-June-17th-2020
+    areas: [Enterprise Admin]
+    breaking: false
+    highlights:
+      - Secondary Property Type expanded; Market Intelligence properties hidden by default.
+  - date: '2020-06-04'
+    title: 'Release Notes : June 3rd, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360048848974-Release-Notes-June-3rd-2020
+    areas: [Enterprise Admin]
+    breaking: false
+    highlights:
+      - Nightly zip of all heat maps produced for bulk use via the admin Queue section.
+  - date: '2020-05-21'
+    title: 'Release Notes : May 20th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360048132434-Release-Notes-May-20th-2020
+    areas: [Site Plan Editor, Enterprise Admin, Advanced SEO, Capsule Maps]
+    breaking: false
+    highlights:
+      - Bulk document upload now updates existing documents in place.
+      - SEO templating language defaults updated.
+  - date: '2020-05-01'
+    title: 'Release Notes : April 30th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047041514-Release-Notes-April-30th-2020
+    areas: [Site Plan Editor, Enterprise Admin, Interactive Site Plans]
+    breaking: false
+  - date: '2020-04-30'
+    title: 'Release Notes : April 22nd, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047691953-Release-Notes-April-22nd-2020
+    areas: [Site Plan Editor]
+    breaking: false
+  - date: '2020-04-30'
+    title: 'Release Notes : April 15th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047691793-Release-Notes-April-15th-2020
+    areas: [Advanced SEO, Enterprise Admin, Data Feed Logs, Site Plan Editor]
+    breaking: false
+    highlights:
+      - Data Feed Logs now show differentials each time the data feeds run.
+  - date: '2020-04-30'
+    title: 'Release Notes : April 9th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047039554-Release-Notes-April-9th-2020
+    areas: [Enterprise Admin, EPS File Upload, iOS, Custom Website]
+    breaking: false
+  - date: '2020-04-30'
+    title: 'Release Notes : April 2nd, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047691713-Release-Notes-April-2nd-2020
+    areas: [Property Level Data]
+    breaking: false
+    highlights:
+      - >-
+        24 pre-defined Secondary Property Types added (Automotive, Airport Retail, Bank,
+        Big Box, Commercial Condominium, Community Center, Convenience Store, Freestanding
+        Building, Gas Station, Lifestyle Center, Mixed Use Retail, Neighborhood Center,
+        Outlet Center, Outparcel/Pad, Power Center, Pharmacy, Regional Shopping Center,
+        Restaurant, Retail Land, Retail Other, Specialty Center, Street Retail, Strip Center,
+        Supermarket, Super Regional Center) — the closest thing to a published vocabulary
+        on the public surface.
+  - date: '2020-04-30'
+    title: 'Release Notes : March 31st, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047691513-Release-Notes-March-31st-2020
+    areas: [Lease Expiration Heat Maps, Interactive Site Plans]
+    breaking: false
+  - date: '2020-04-30'
+    title: 'Release Notes : March 26th, 2020'
+    url: https://propertycapsule.zendesk.com/hc/en-us/articles/360047691373-Release-Notes-March-26th-2020
+    areas: [Open Editor, iOS uploads, Lease Expiration Heat Map]
+    breaking: false
+    highlights:
+      - Idle session timeout introduced — users inactive for more than an hour are signed out.

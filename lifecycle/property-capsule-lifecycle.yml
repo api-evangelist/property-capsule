@@ -1,0 +1,84 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  https://api.propertycapsule.com/api (Apache directory index) +
+  https://propertycapsule.zendesk.com/hc/en-us/sections/360008308314-Release-Notes
+name: Property Capsule API lifecycle
+summary: >-
+  Property Capsule publishes no versioning policy, no deprecation policy, no SLA and no status
+  page. What can be established is observational: the API host exposes two path-versioned
+  major versions, and the public release notes announce two feature sunsets — one of which
+  explicitly removed a surface "for public integration" — with no deprecation window, no
+  Sunset/Deprecation headers, and no migration guidance.
+versioning:
+  scheme: path
+  pattern: /api/{version}
+  versions_observed:
+    - version: v1
+      url: https://api.propertycapsule.com/api/v1/
+      status: 200
+      note: '"You must authenticate." — reachable but gated'
+    - version: v2
+      url: https://api.propertycapsule.com/api/v2/
+      status: 200
+      note: empty body; present in the directory index
+  evidence:
+    url: https://api.propertycapsule.com/api
+    status: 200
+    note: >-
+      Apache 2.4.54 directory index listing v1/ and v2/, both last modified 2026-08-06.
+      This is a server artifact, not a published version policy.
+  policy_published: false
+deprecation:
+  policy_published: false
+  sunset_header: not-observed
+  deprecation_header: not-observed
+  rfc8594: false
+  announced_sunsets:
+    - item: Bidboard
+      date: '2020-07-22'
+      quote: >-
+        "'Bidboard' functionality has been sunset and is no longer available for public
+        integration. The Bidboard navigation has removed from the Enterprise Admin."
+      url: https://propertycapsule.zendesk.com/hc/en-us/articles/360052200093-Release-Notes-July-22nd-2020
+      notice_period: none-published
+    - item: Demographic "Resources" section
+      date: '2020-07-22'
+      quote: '"Demographic ''Resources'' section has been sunset and is no longer available in the Enterprise Admin."'
+      url: https://propertycapsule.zendesk.com/hc/en-us/articles/360052200093-Release-Notes-July-22nd-2020
+      notice_period: none-published
+    - item: Internet Explorer support
+      date: '2020-07-22'
+      quote: '"Internet Explorer is not supported by PropertyCapsule."'
+      url: https://propertycapsule.zendesk.com/hc/en-us/articles/360052200093-Release-Notes-July-22nd-2020
+      notice_period: none-published
+status_page:
+  published: false
+  probed:
+    - url: https://status.propertycapsule.com/
+      status: 404
+      note: resolves to the platform origin and returns a Spring Boot JSON 404
+sla:
+  published: false
+changelog:
+  published: true
+  artifact: changelog/property-capsule-changelog.yml
+  url: https://propertycapsule.zendesk.com/hc/en-us/sections/360008308314-Release-Notes
+  latest_entry: '2020-09-03'
+company_lifecycle:
+  status: acquired
+  acquirer: VTS
+  announced: '2019-10-16'
+  note: >-
+    VTS acquired PropertyCapsule in October 2019 and the product was folded into VTS Market.
+    propertycapsule.com still serves the original marketing site and the platform still runs
+    (admin, maps, tours and API hosts all answer), but the public release notes stop in
+    September 2020 and /pricing now redirects to the acquirer's own product page.
+pointers_emitted:
+  Lifecycle: true
+  StatusPage: false
+  StatusPage_reason: no status page is served; status.propertycapsule.com returns 404
+  Deprecation: false
+  Deprecation_reason: >-
+    Individual sunsets were announced in release notes, but no deprecation POLICY is
+    published — no notice period, no Sunset/Deprecation headers, no migration path.

@@ -1,0 +1,31 @@
+generated: '2026-08-13'
+method: searched
+source: https://propertycapsule.com/pricing
+name: Property Capsule pricing
+plan_count: 0
+plans: []
+note: >-
+  Property Capsule publishes no plans, tiers, or prices. The /pricing route is still listed in
+  the site's own sitemap.xml, but it now answers HTTP 301 and redirects off-domain to
+  https://www.vts.com/propertycapsule-retail-management-software — the acquirer's product page,
+  which itself answers HTTP 403 behind a Cloudflare bot challenge to non-browser clients and
+  carries a "request a demo" call to action rather than a price. The contact page
+  (https://propertycapsule.com/contact, HTTP 200) routes buyers to a sales address and a phone
+  number. Commercial terms are enterprise contact-sales only, and there is no self-serve
+  purchase path, no published API pricing, and no metered/usage rate card for the Developer API.
+evidence:
+  - url: https://propertycapsule.com/pricing
+    status: 301
+    note: redirects to https://www.vts.com/propertycapsule-retail-management-software
+  - url: https://www.vts.com/propertycapsule-retail-management-software
+    status: 403
+    note: Cloudflare bot challenge ("Just a moment..."); no prices retrievable
+  - url: https://propertycapsule.com/sitemap.xml
+    status: 200
+    note: still advertises /pricing, /trial and /contact
+  - url: https://propertycapsule.com/contact
+    status: 200
+    note: contact-sales form, no pricing
+  - url: https://propertycapsule.com/trial
+    status: 200
+    note: returns the homepage shell; no trial signup flow is served at this route

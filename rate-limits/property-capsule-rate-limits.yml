@@ -1,0 +1,35 @@
+generated: '2026-08-13'
+method: searched
+source: https://propertycapsule.zendesk.com/hc/en-us
+name: Property Capsule Developer API rate limits
+limit_count: 0
+limits: []
+headers: []
+note: >-
+  No rate limits are published. Property Capsule's public help center (62 articles across 16
+  sections, harvested through the anonymous Zendesk Help Center API) contains no developer or
+  API section at all — the only API mentions in the entire corpus are three release notes
+  announcing the Developer API launch and two documentation updates. Access to the reference
+  is granted by contacting support, so any published quota, window, burst allowance or
+  429 behavior sits behind that gate. Unauthenticated probes of the API host cannot observe
+  runtime rate-limit headers either: api.propertycapsule.com answers every path with
+  "You must authenticate." before any limit is evaluated, and no X-RateLimit-*, RateLimit-*
+  or Retry-After header appears on those responses.
+observed_response_headers:
+  host: https://api.propertycapsule.com
+  http_status: 200
+  body: You must authenticate.
+  rate_limit_headers_present: false
+  headers_seen:
+    - server: istio-envoy
+    - set-cookie: JSESSIONID (session-based auth)
+    - x-content-type-options: nosniff
+    - x-frame-options: DENY
+    - cache-control: no-cache, no-store, max-age=0, must-revalidate
+evidence:
+  - url: https://api.propertycapsule.com/api/v1/
+    status: 200
+    note: '"You must authenticate." — no rate-limit headers on the challenge response'
+  - url: https://propertycapsule.zendesk.com/api/v2/help_center/en-us/articles.json
+    status: 200
+    note: 62 public help-center articles, none documenting API rate limits

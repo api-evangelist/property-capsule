@@ -1,0 +1,151 @@
+generated: '2026-08-13'
+method: probed
+source: live probe of every Property Capsule host found in apis.yml and in the site markup
+summary: >-
+  No /.well-known/ document is served on any Property Capsule host. Three distinct failure
+  shapes were observed and none of them is a document: the marketing/app origin
+  (propertycapsule.com) is a single-page-app catch-all that answers HTTP 200 with the 39 KB
+  homepage for every path including every /.well-known/* path; the API origin
+  (api.propertycapsule.com) answers every path with the 22-byte plain-text body
+  "You must authenticate."; and the Angular front-ends (maps., tours.) sit on S3/CloudFront
+  and answer AccessDenied (403) for unrouted paths or return the SPA shell. NO WellKnown or
+  SecurityTxt pointer is emitted — a soft-200 HTML shell and an auth challenge are both
+  recorded misses.
+hosts:
+  - host: https://propertycapsule.com
+    behavior: spa-catch-all
+    note: Every path returns HTTP 200 with the identical 39298-byte homepage HTML. Soft-200, not a document.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/openid-configuration
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/api-catalog
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/agent-card.json
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/agent.json
+        status: 200
+        document: false
+        body: html-shell
+  - host: https://api.propertycapsule.com
+    behavior: auth-gated
+    note: >-
+      Every path returns HTTP 200 with the 22-byte plain-text body "You must authenticate."
+      The origin is Apache 2.4.54 behind istio-envoy; /api exposes an Apache directory index
+      listing v1/ and v2/, both of which require authentication.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+      - path: /.well-known/openid-configuration
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+      - path: /.well-known/api-catalog
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+      - path: /.well-known/agent-card.json
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+      - path: /.well-known/agent.json
+        status: 200
+        document: false
+        body: 'plain text: You must authenticate.'
+  - host: https://maps.propertycapsule.com
+    behavior: s3-cloudfront-spa
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+      - path: /.well-known/openid-configuration
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/api-catalog
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+      - path: /.well-known/agent-card.json
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+      - path: /.well-known/agent.json
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+  - host: https://tours.propertycapsule.com
+    behavior: s3-cloudfront-spa
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+      - path: /.well-known/openid-configuration
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/api-catalog
+        status: 200
+        document: false
+        body: html-shell
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+      - path: /.well-known/agent-card.json
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+      - path: /.well-known/agent.json
+        status: 403
+        document: false
+        body: S3 AccessDenied XML
+result:
+  documents_found: 0
+  security_txt: false
+  agent_card: false
+  pointer_emitted: false
+  pointer_note: >-
+    No WellKnown, SecurityTxt or AgentCard pointer is written to apis.yml. Every 200 observed
+    was an SPA catch-all or an authentication challenge, not a served document.
