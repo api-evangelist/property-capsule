@@ -43,7 +43,7 @@ created: '2026-07-17'
 modified: '2026-08-13'
 tags:
 - Company
-- Real-Estate
+- Real Estate
 - PropTech
 - Commercial Real Estate
 - Retail
@@ -57,6 +57,7 @@ tags_raw:
 - Retail
 - Marketing Automation
 - Leasing
+- Real-Estate
 apis:
 - name: Property Capsule Developer API
   description: 'Property Capsule''s Developer API, announced live on 2020-06-18 in the company''s
@@ -72,7 +73,7 @@ apis:
   humanURL: https://propertycapsule.com/details
   baseURL: https://api.propertycapsule.com/api/v1
   tags:
-  - Real-Estate
+  - Real Estate
   - PropTech
   - Commercial Real Estate
   - Leasing
@@ -83,6 +84,7 @@ apis:
   - Commercial Real Estate
   - Leasing
   - Property Data
+  - Real-Estate
   x-access: gated
   x-access-note: >-
     Probed 2026-08-13. https://api.propertycapsule.com/api/v1/ returns HTTP 200 with the body
